@@ -5,19 +5,19 @@ metadata:
   name: result-app-deploy
   labels:
     name: result-app-deploy
-    app: demo-voting-app
+    app: voting-app
 spec:
   replicas: 1
   selector:
     matchLabels:
       name: result-app-pod
-      app: demo-voting-app
+      app: voting-app
   template:
     metadata:
       name: result-app-pod
       labels:
         name: result-app-pod
-        app: demo-voting-app
+        app: voting-app
     spec:
       containers:
       - name: result-app

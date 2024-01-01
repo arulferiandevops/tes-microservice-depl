@@ -5,29 +5,29 @@ metadata:
   name: postgres-deploy
   labels:
     name: postgres-deploy
-    app: demo-voting-app
+    app: voting-app
 spec:
   replicas: 1
   selector:
     matchLabels:
       name: postgres-pod
-      app: demo-voting-app
+      app: voting-app
   template:
     metadata:
       name: postgres-pod
       labels:
         name: postgres-pod
-        app: demo-voting-app
+        app: voting-app
     spec:
       containers:
       - name: postgres
-        image: postgres
+        image: postgres:9.5
         ports:
         - containerPort: 5432
         env:
           - name: POSTGRES_USER
             value: "postgres"
           - name: POSTGRES_PASSWORD
-            value: "postgres"
+            value: "pg8675309"
           - name: POSTGRES_HOST_AUTH_METHOD
             value: trust

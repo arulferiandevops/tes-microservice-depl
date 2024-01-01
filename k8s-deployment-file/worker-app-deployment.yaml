@@ -5,20 +5,25 @@ metadata:
   name: worker-app-deploy
   labels:
     name: worker-app-deploy
-    app: demo-voting-app
+    app: voting-app
 spec:
   replicas: 1
   selector:
     matchLabels:
       name: worker-app-pod
-      app: demo-voting-app
+      app: voting-app
   template:
     metadata:
       name: worker-app-pod
       labels:
         name: worker-app-pod
-        app: demo-voting-app
+        app: voting-app
     spec:
       containers:
       - name: worker-app
         image: arulferianr/voting-worker-app:v1
+        env:
+        - name: FROM_REDIS_HOST
+          value: "1"
+        - name: TO_REDIS_HOST
+          value: "1"

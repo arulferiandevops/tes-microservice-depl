@@ -5,23 +5,26 @@ metadata:
   name: voting-app-deploy
   labels:
     name: voting-app-deploy
-    app: demo-voting-app
+    app: voting-app
 spec:
   replicas: 1
   selector:
     matchLabels:
       name: voting-app-pod
-      app: demo-voting-app
+      app: voting-app
   template:
     metadata:
       name: voting-app-pod
       labels:
         name: voting-app-pod
-        app: demo-voting-app
+        app: voting-app
     spec:
       containers:
       - name: voting-app
         image: arulferianr/voting-app:v1
+        env:
+        - name: WEB_VOTE_NUMBER
+          value: "01"
         ports:
         - containerPort: 80
 

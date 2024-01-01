@@ -5,7 +5,7 @@ metadata:
   name: result-service
   labels:
     name: result-service
-    app: demo-voting-app
+    app: voting-app
 spec:
   type: NodePort
   ports:
@@ -14,4 +14,4 @@ spec:
     nodePort: 30005
   selector:
     name: result-app-pod
-    app: demo-voting-app
+    app: voting-app
